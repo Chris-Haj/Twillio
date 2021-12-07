@@ -20,7 +20,7 @@ public class UI {
         }
         numbers[9] = new JButton("0");
         numbers[10] = new JButton("*");
-        numbers[11] = new JButton("#");
+        numbers[11] = new JButton("+");
 
         for(int i=9;i<12;i++){
             numbers[i].setFont(new Font(Font.SANS_SERIF,Font.BOLD,50));

@@ -2,6 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
 
 public class Setup implements ActionListener {
 
@@ -10,6 +13,9 @@ public class Setup implements ActionListener {
     JPanel numbersGrid = new JPanel();
     JPanel actions = new JPanel();
     String text="";
+    public static final String ACCOUNT_SID = "AC3ff0e2cdd33b1814ecf4ab395ce8f489";
+    public static final String AUTH_TOKEN = "f6dc0a151474c33bc1016b81d7f3dead";
+
 
     UI ui = new UI();
 
@@ -64,7 +70,8 @@ public class Setup implements ActionListener {
             }
         }
         if(e.getSource()==ui.send){
-            text=ui.SMS.getText();
+            Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+            Message message = Message.creator(new PhoneNumber(ui.phone.getText()), new PhoneNumber("+12183040178"), ui.SMS.getText()).create();
         }
         else if(e.getSource()==ui.delete){
             ui.phone.setText(ui.phone.getText().substring(0,ui.phone.getText().length()-1));
