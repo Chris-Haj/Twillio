@@ -6,7 +6,7 @@ import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
 
-public class Setup implements ActionListener {
+public class Setup extends MainClass implements ActionListener {
 
     JFrame frame =  new JFrame("Messenger");
     JPanel phoneHolder =  new JPanel();
@@ -68,13 +68,11 @@ public class Setup implements ActionListener {
                 ui.phone.setText(ui.phone.getText()+ui.numbers[i].getText());
             }
         }
-        if(e.getSource()==ui.send){
-
-            Message message = Message.creator(new PhoneNumber(ui.phone.getText()), new PhoneNumber("+12183040178"), ui.SMS.getText()).create();
+        if(e.getSource()==ui.send) {
+            Send(ui.SMS.getText(),ui.phone.getText());
         }
         else if(e.getSource()==ui.delete){
-//            ui.phone.setText(ui.phone.getText().substring(0,ui.phone.getText().length()-1));
-            ui.phone.setText("+972527553195");
+            ui.phone.setText(ui.phone.getText().substring(0,ui.phone.getText().length()-1));
         }
     }
 }
