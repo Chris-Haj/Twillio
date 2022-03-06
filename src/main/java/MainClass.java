@@ -11,7 +11,7 @@ public class MainClass {
 
     public static void Send(String msg,String number){
         Message message = Message.creator(new PhoneNumber(number),
-                new PhoneNumber("+12183040178"),
+                new PhoneNumber(System.getProperty("PhoneNum")),
                 msg).create();
     }
 
