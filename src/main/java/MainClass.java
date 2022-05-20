@@ -7,7 +7,7 @@ import javax.swing.*;
 public class MainClass {
     // Find your Account Sid and Token at twilio.com/user/account
     public static final String ACCOUNT_SID = System.getProperty("Acc_Sid");
-    public static final String AUTH_TOKEN = System.getProperty("Acc_Token")
+    public static final String AUTH_TOKEN = System.getProperty("Acc_Token");
 
     public static void Send(String msg,String number){
         Message message = Message.creator(new PhoneNumber(number),
